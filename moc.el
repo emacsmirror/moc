@@ -1466,7 +1466,7 @@ text we have is likely incomplete out of context."
           (lambda (prop-name)
             (when-let* ((prop (plist-get (car interval) prop-name)))
               (put-text-property begin end prop-name prop clean-string)))
-          '(face font-lock-face button invisible display))))
+          '(face font-lock-face button invisible display category))))
      dirty-props)
     clean-string))
 
