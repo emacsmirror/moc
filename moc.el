@@ -1230,7 +1230,7 @@ OCCLUDES is a list of conses of BEG END to be occluded."
 
 (defun moc-focus-highlight-clear ()
   "Delete all highlights and occludes."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (moc--focus-assert-mode)
   (unless (or moc--focus-highlights
               moc--focus-occludes)
@@ -1242,21 +1242,17 @@ OCCLUDES is a list of conses of BEG END to be occluded."
   (mapc #'delete-overlay moc--focus-occluding-overlays)
   (setq moc--focus-occluding-overlays nil))
 
-(put 'moc-focus-highlight-clear 'mode 'moc-focus-mode)
-
 (defun moc-focus-quit ()
   "Fullscreen quit command."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (if-let* ((buffer (get-buffer "*MoC Focus*")))
       (kill-buffer buffer)
     (user-error "No MoC buffer found")))
 
-(put 'moc-focus-quit 'mode 'moc-focus-mode)
-
 (defun moc-focus-highlight (beg end)
   "Highlight region between BEG and END.
 The shadow face will be applied to remaining unhighlighted regions."
-  (interactive "r")
+  (interactive "r" moc-focus-mode)
   (moc--focus-assert-mode)
   (moc--focus-highlight beg end)
   (moc--focus-un-occlude beg end)
@@ -1266,13 +1262,11 @@ The shadow face will be applied to remaining unhighlighted regions."
   (moc--focus-apply-highlights moc--focus-highlights)
   (moc--focus-apply-occludes moc--focus-occludes))
 
-(put 'moc-focus-highlight 'mode 'moc-focus-mode)
-
 (defun moc-focus-occlude (beg end)
   "Occlude region between BEG and END.
 This overrides any highlights or shadows.  Use un-highlight or highlight
 to make occluded regions visible again."
-  (interactive "r")
+  (interactive "r" moc-focus-mode)
   (moc--focus-assert-mode)
   (moc--focus-occlude beg end)
   ;; unnecessary to deactivate the mark when called any other way
@@ -1280,12 +1274,10 @@ to make occluded regions visible again."
     (deactivate-mark))
   (moc--focus-apply-occludes moc--focus-occludes))
 
-(put 'moc-focus-occlude 'mode 'moc-focus-mode)
-
 (defun moc-focus-un-highlight (beg end)
   "Remove highlight in region between BEG and END.
 The shadow face will be added to the region between BEG and END."
-  (interactive "r")
+  (interactive "r" moc-focus-mode)
   (moc--focus-assert-mode)
   (unless moc--focus-highlights
     (user-error "No highlights to un-highlight"))
@@ -1297,12 +1289,10 @@ The shadow face will be added to the region between BEG and END."
   (moc--focus-apply-highlights moc--focus-highlights)
   (moc--focus-apply-occludes moc--focus-occludes))
 
-(put 'moc-focus-un-highlight 'mode 'moc-focus-mode)
-
 (defun moc-focus-toggle-overlays ()
   "Toggle overlays from the source.
 This enables independent demonstration of the effect of source overlays."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (moc--focus-assert-mode)
   (if moc--focus-overlays
       (progn (mapc #'delete-overlay
@@ -1314,23 +1304,19 @@ This enables independent demonstration of the effect of source overlays."
      ;; line without stretching the background for that line, let me know 😉!
      moc--focus-overlay-specs 1)))
 
-(put 'moc-focus-toggle-overlays 'mode 'moc-focus-mode)
-
 (defun moc-focus-toggle-invisibility ()
   "Toggle the `buffer-invisibility-spec'.
 This enables seeing the effects of the `invisible' text property."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (moc--focus-assert-mode)
   (if buffer-invisibility-spec
       (setq buffer-invisibility-spec nil)
     (setq buffer-invisibility-spec
           moc--focus-invisibilty-spec)))
 
-(put 'moc-focus-toggle-invisibility 'mode 'moc-focus-mode)
-
 (defun moc-focus-kill-ring-save ()
   "Save the focused text and highlights to a playback expression."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (moc--focus-assert-mode)
   (let ((expression
          `(moc-focus
@@ -1343,8 +1329,6 @@ This enables seeing the effects of the `invisible' text property."
            :text ,moc--focus-cleaned-text)))
     (kill-new (prin1-to-string expression)))
   (message "saved focus to kill ring."))
-
-(put 'moc-focus-kill-ring-save 'mode 'moc-focus-mode)
 
 ;; ** Focus Extraction & Pre-Processing
 
@@ -1657,14 +1641,12 @@ Used in suffix command."
 When in a focus buffer, likely the user does not want to ever have a
 fully visible cursor.  This command directly toggles hidden and subtle
 instead."
-  (interactive)
+  (interactive nil moc-focus-mode)
   (if moc-subtle-cursor-mode
       (moc-subtle-cursor-mode -1)
     (moc-subtle-cursor-mode 1))
   (unless moc-subtle-cursor-mode
     (moc-hide-cursor-mode 1)))
-
-(put 'moc--focus-cursor-toggle 'mode 'moc-focus-mode)
 
 (defun moc--focus-dispatch-overlays ()
   "Describe state of overlays.
