@@ -1348,6 +1348,13 @@ This enables seeing the effects of the `invisible' text property."
 
 ;; ** Focus Extraction & Pre-Processing
 
+(defun moc--focus-pre-clean-input (buffer)
+  "Remove anything troublesome to process."
+  (with-current-buffer buffer
+    (let ((inhibit-read-only t))
+      (remove-text-properties (point-min) (point-max)
+                              '(read-only nil)))))
+
 (defun moc--focus-copy-overlays (buffer beg end)
   "Copy buffers between BEG and END to BUFFER.
 It is assumed that BUFFER was offset by BEG."
@@ -1599,6 +1606,7 @@ ARGS contains the following keys:
            (setq before (point))
            (copy-to-buffer buffer beg end)
 
+           (moc--focus-pre-clean-input buffer)
            (moc--focus-copy-overlays buffer beg end)
            (moc--focus-pad buffer (- beg before))
            (moc--focus-trim-rect buffer rect before)

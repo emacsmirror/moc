@@ -10,6 +10,7 @@
 - Better checks for ~visual-wrap-prefix-mode~
 - Avoid warnings for faces
 - Include category in cleaned text properties
+- Input processing does not fail when input has =read-only= text property set to t
 * v0.6.1 Stabilizing 🤡
 We are beginning to tag releases.  It's almost ready.  It should be ready, but in case it is not, don't /just/ blame me.  File issues.
 ** Added 🦙
