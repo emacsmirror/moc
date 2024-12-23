@@ -3,14 +3,16 @@
 #+email:	contact@positron.solutions
 
 #+select_tags: latest
-#+export_file_name: RELEASE.md
+#+export_file_name: RELEASE
 
-* v0.6.2 Insecticide 🐛 :latest:
+* v0.6.3 Pre-Release :latest:
+** Fixed 💩
+- Include category in cleaned text properties
+- Input processing does not fail when input has =read-only= text property set to t
+* v0.6.2 Insecticide 🐛
 ** Fixed 💩
 - Better checks for ~visual-wrap-prefix-mode~
 - Avoid warnings for faces
-- Include category in cleaned text properties
-- Input processing does not fail when input has =read-only= text property set to t
 * v0.6.1 Stabilizing 🤡
 We are beginning to tag releases.  It's almost ready.  It should be ready, but in case it is not, don't /just/ blame me.  File issues.
 ** Added 🦙
