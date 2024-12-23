@@ -8,10 +8,9 @@
 #+end_export
 * Tools for Display & Presenting
 #+begin_export html
-<a href="https://melpa.org/#/moc"><img src="https://melpa.org/packages/moc-badge.svg" alt="melpa package"></a><a href="https://stable.melpa.org/#/moc"><img src="https://stable.melpa.org/packages/moc-badge.svg" alt="melpa stable package"></a><a href="https://elpa.nongnu.org/nongnu/moc.html"><img src="https://elpa.nongnu.org/nongnu/moc.svg" alt="Non-GNU ELPA"></a>
+<a href="https://melpa.org/#/moc"><img src="https://melpa.org/packages/moc-badge.svg" alt="melpa package"></a><a href="https://stable.melpa.org/#/moc"><img src="https://stable.melpa.org/packages/moc-badge.svg" alt="melpa stable package"></a><!--a href="https://elpa.nongnu.org/nongnu/moc.html"><img src="https://elpa.nongnu.org/nongnu/moc.svg" alt="Non-GNU ELPA"></a-->
 #+end_export
 #+include: "manual.org::*Introduction" :only-contents t
-
 ** Status 👷
 This package is still pre-1.0.  Read the NEWS.org and release notes
 
