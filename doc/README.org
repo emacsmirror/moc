@@ -14,8 +14,8 @@ https://private-user-images.githubusercontent.com/73710933/398084554-69b2d887-be
 <a href="https://melpa.org/#/moc"><img src="https://melpa.org/packages/moc-badge.svg" alt="melpa package"></a><a href="https://stable.melpa.org/#/moc"><img src="https://stable.melpa.org/packages/moc-badge.svg" alt="melpa stable package"></a><!--a href="https://elpa.nongnu.org/nongnu/moc.html"><img src="https://elpa.nongnu.org/nongnu/moc.svg" alt="Non-GNU ELPA"></a-->
 #+end_export
 #+include: "manual.org::*Introduction" :only-contents t
-** Status 👷
-This package is still pre-1.0.  Read the NEWS.org and release notes
+** Status 🤠
+This package is not rapidly changing, but is still pre-1.0.  The NEWS.org contains recent changes.  Breaking changes should warn.
 
 The ~moc-focus~ command and others are super useful and is used in almost every video or presentation I make!  Therefore, it is made available in this early state.
 

@@ -14,9 +14,9 @@ Master of Ceremonies 🎤 is a collection of tools for presenting. Use it to con
 -   🔎 `moc-focus` is a tool to create, both live and pre-recorded, illustrations of code and other text in Emacs.
 
 
-## Status 👷
+## Status 🤠
 
-This package is still pre-1.0. Read the NEWS.org and release notes
+This package is not rapidly changing, but is still pre-1.0. The NEWS.org contains recent changes. Breaking changes should warn.
 
 The `moc-focus` command and others are super useful and is used in almost every video or presentation I make! Therefore, it is made available in this early state.
 
