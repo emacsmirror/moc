@@ -1326,7 +1326,7 @@ This enables seeing the effects of the `invisible' text property."
            :continuation ',moc--focus-continuation
            :highlights ',moc--focus-highlights
            :occludes ',moc--focus-occludes
-           :invisibility-spec ',moc--focus-invisibilty-spec
+           :invisibility-spec ',buffer-invisibility-spec
            :overlays ',moc--focus-overlay-specs
            :text ,moc--focus-cleaned-text)))
     (kill-new (prin1-to-string expression)))
