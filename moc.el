@@ -1310,9 +1310,11 @@ This enables seeing the effects of the `invisible' text property."
   (interactive nil moc-focus-mode)
   (moc--focus-assert-mode)
   (if buffer-invisibility-spec
-      (setq buffer-invisibility-spec nil)
+      (progn (setq buffer-invisibility-spec nil)
+             (redraw-display))
     (setq buffer-invisibility-spec
-          moc--focus-invisibilty-spec)))
+          moc--focus-invisibilty-spec)
+    (redraw-display)))
 
 (defun moc-focus-kill-ring-save ()
   "Save the focused text and highlights to a playback expression."

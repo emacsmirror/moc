@@ -9,6 +9,7 @@
 ** Fixed 💩
 - Include category in cleaned text properties
 - Input processing does not fail when input has =read-only= text property set to t
+- ~moc-focus-toggle-invisibility~ will call ~redraw-display~ to make the invisibility spec have visible effect
 * v0.6.2 Insecticide 🐛
 ** Fixed 💩
 - Better checks for ~visual-wrap-prefix-mode~
