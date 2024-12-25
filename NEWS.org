@@ -11,6 +11,7 @@
 - Input processing does not fail when input has =read-only= text property set to t
 - ~moc-focus-toggle-invisibility~ will call ~redraw-display~ to make the invisibility spec have visible effect
 - ~moc-focus-toggle-invisibility~ and playback via ~moc-focus-kill-ring-save~ will remember the /current/ invisibility spec, not the one used when the buffer is initially displayed
+- Fixed ~moc-focus~  occlusion & highlight playback off-by-one bug
 * v0.6.2 Insecticide 🐛
 ** Fixed 💩
 - Better checks for ~visual-wrap-prefix-mode~

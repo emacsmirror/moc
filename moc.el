@@ -972,12 +972,7 @@ another window will likely leave something to be desired."
     (mapc (lambda (remap) (moc-face-remap remap t))
           moc-focus-default-remaps)
     (setq moc--focus-highlights highlights)
-    ;; TODO distinguish fully shadowed versus no highlights
-    (when highlights
-      (moc--focus-apply-highlights highlights))
     (setq moc--focus-occludes occludes)
-    (when occludes
-      (moc--focus-apply-occludes occludes))
 
     ;; First scale the text up to the size it will need to be after the
     ;; continuation strategy and horizontal & vertical centering.
@@ -1051,6 +1046,13 @@ another window will likely leave something to be desired."
         (add-hook 'window-state-change-functions #'moc--focus-refresh nil t)
         (goto-char 0)
         (insert (propertize "\n" 'face `(:height ,margin-lines)))
+
+        ;; TODO distinguish fully shadowed versus no highlights
+        (when highlights
+          (moc--focus-apply-highlights highlights))
+        (when occludes
+          (moc--focus-apply-occludes occludes))
+
         (setf (overlay-start scale-overlay) 2)
         (setf (overlay-end scale-overlay) (point-max))))
     (read-only-mode 1)))
