@@ -393,7 +393,7 @@ Shocking."
   (let ((str (read-from-minibuffer
               prompt
               (when initial (number-to-string initial)) nil nil nil)))
-    (if (string-match-p "^-?[0-9]*$" str)
+    (if (string-match-p "^-?[0-9]+$" str)
         (string-to-number str)
       (user-error "Could not read number: %s" str))))
 
